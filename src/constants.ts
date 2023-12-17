@@ -1,12 +1,3 @@
-export const defaultCSS = `
-/* Write custom CSS here, and transformer support. For example: */
-/* .custom {
-  font-weight: 500;
-  @apply p1 text-(white xl);
-  background-color: theme('colors.red.400');
-} */
-`.trim()
-
 export const defaultConfigRaw = `import {
   defineConfig,
   presetAttributify,
@@ -22,6 +13,10 @@ export default defineConfig({
     presetAttributify(),
     presetIcons({
       cdn: 'https://esm.sh/',
+      'vertical-align': 'middle',
+      extraProperties: {
+        'display': 'inline-block',
+      },
     }),
   ],
   transformers: [
@@ -30,7 +25,3 @@ export default defineConfig({
   ],
 })
 `
-
-export const customCSSLayerName = 'playground'
-
-export const STORAGE_KEY = 'last-search'

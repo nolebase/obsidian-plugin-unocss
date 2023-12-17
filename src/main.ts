@@ -2,35 +2,33 @@ import { Plugin } from 'obsidian'
 import { ViewPlugin } from '@codemirror/view'
 import type { EditorView, PluginValue, ViewUpdate } from '@codemirror/view'
 import { createGenerator } from 'unocss'
-import type { UnoGenerator, UserConfig } from 'unocss'
+import type { UnoGenerator } from 'unocss'
 
-import { evaluateUserConfig } from './unocssConfig'
+import { evaluateUserConfig } from './config'
 import { defaultConfigRaw } from './constants'
 
-let timer: any = null
+function debounce<T extends (...args: any) => any>(fn: T, wait: number) {
+  let timer: any = null
 
-function debounce(fn: Function, wait: number) {
-  if (timer)
-    return
+  return function (...args: Parameters<T>) {
+    if (timer)
+      return
 
-  timer = setTimeout(() => {
-    timer = null
-    fn()
-  }, wait)
+    timer = setTimeout(() => {
+      timer = null
+      fn(...Array.from(args))
+    }, wait)
+  }
 }
 
 class UnoCSSCodeMirrorViewPlugin implements PluginValue {
-  private viewDom: HTMLElement
-  private unocssConfig: UserConfig<object> | undefined
-  private unocssConfigReady: boolean = false
-  private unocssCodeGenerator: UnoGenerator<object> | undefined
+  private view: EditorView
   private styleElement: HTMLStyleElement | undefined
+  private unocssCodeGenerator: UnoGenerator<object>
 
-  constructor(view: EditorView) {
-    this.viewDom = view.dom
-
-    this.unocssConfig = undefined
-    this.unocssCodeGenerator = undefined
+  constructor(view: EditorView, unocssCodeGenerator: UnoGenerator<object>) {
+    this.view = view
+    this.unocssCodeGenerator = unocssCodeGenerator
 
     this.init()
   }
@@ -39,85 +37,71 @@ class UnoCSSCodeMirrorViewPlugin implements PluginValue {
     if (!update.docChanged || !update.viewportChanged)
       return
 
-    debounce(this.generate.bind(this), 500)
+    const generate = debounce(this.generateOnUpdates.bind(this), 500)
+    generate(update)
+  }
+
+  destroy(): void {
+    try {
+      if (this.styleElement?.parentElement)
+        this.styleElement?.parentElement.removeChild(this.styleElement)
+
+      this.styleElement?.remove()
+    }
+    catch (e) {
+      console.error(e)
+    }
   }
 
   async init() {
-    await this.loadUnoCSSConfig()
+    await this.waitForViewDOM()
     await this.generate()
-  }
-
-  async loadUnoCSSConfig() {
-    const config = await evaluateUserConfig(defaultConfigRaw)
-    if (!config)
-      return
-
-    this.unocssConfig = config
-    this.unocssCodeGenerator = createGenerator({}, this.unocssConfig)
-    this.unocssConfigReady = true
   }
 
   async waitForViewDOM(seconds: number = 5) {
     let i = 0
 
-    while (!this.viewDom) {
+    while (!this.view || !this.view.dom) {
       await new Promise(resolve => setTimeout(resolve, 1000))
 
       i++
       if (i > seconds)
         return
     }
-  }
-
-  async waitForUnoCSSConfig(seconds: number = 5) {
-    let i = 0
-
-    while (!this.unocssConfigReady) {
-      await new Promise(resolve => setTimeout(resolve, 1000))
-
-      i++
-      if (i > seconds)
-        return
-    }
-  }
-
-  async waitForUnoCSSGenerator(seconds: number = 5) {
-    let i = 0
-
-    while (!this.unocssCodeGenerator) {
-      await new Promise(resolve => setTimeout(resolve, 1000))
-
-      i++
-      if (i > seconds)
-        return
-    }
-  }
-
-  async waitAllBeforeGenerate() {
-    await this.waitForUnoCSSConfig()
-    await this.waitForUnoCSSGenerator()
-    await this.waitForViewDOM()
   }
 
   async generate() {
-    this.waitAllBeforeGenerate()
-    if (!this.viewDom || !this.unocssConfig || !this.unocssCodeGenerator)
-      return
+    await this.waitForViewDOM()
+    await this.generateCSSFromHTMLContent(this.unocssCodeGenerator, this.view.dom, this.view.state.doc.toString())
+  }
 
-    this.generateCSSFromHTMLContent(this.unocssCodeGenerator, this.viewDom, this.viewDom.innerHTML)
+  async generateOnUpdates(update: ViewUpdate) {
+    await this.waitForViewDOM()
+    await this.generateCSSFromHTMLContent(this.unocssCodeGenerator, this.view.dom, update.state.doc.toString())
   }
 
   async generateCSSFromHTMLContent(unocssCodeGenerator: UnoGenerator<object>, dom: HTMLElement, htmlContent: string) {
     const generatedOutput = await unocssCodeGenerator.generate(htmlContent)
 
+    const existingStyleElement = dom.querySelector('#obsidian-plugin-unocss-styles')
+    if (existingStyleElement)
+      this.styleElement = existingStyleElement as HTMLStyleElement
+
     this.styleElement ||= dom.createEl('style')
+    this.styleElement.id = 'obsidian-plugin-unocss-styles'
     this.styleElement.innerHTML = generatedOutput.css
   }
 }
 
 export default class UnoCSSPlugin extends Plugin {
   async onload() {
-    const editorPlugins = ViewPlugin.fromClass(UnoCSSCodeMirrorViewPlugin)
+    const unocssConfig = await evaluateUserConfig(defaultConfigRaw)
+    if (!unocssConfig)
+      return
+
+    const unocssCodeGenerator = createGenerator({}, unocssConfig)
+    const editorPlugins = ViewPlugin.define(view => new UnoCSSCodeMirrorViewPlugin(view, unocssCodeGenerator))
+
     this.registerEditorExtension(editorPlugins)
   }
 }
