@@ -1,0 +1,40 @@
+{
+  "name": "obsidian-plugin-unocss",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "./dist/main.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "cleanup": "rm -rf ./main.js & rm -rf ./main.js.map",
+    "build": "unbuild && nr cleanup && nr copy",
+    "copy": "cp ./dist/main.js ./main.js && cp ./dist/main.js.map ./main.js.map",
+    "lint": "eslint --cache ."
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.4.6",
+    "@codemirror/view": "^6.22.3",
+    "@types/node": "^20.10.4",
+    "@unocss/core": "^0.58.0",
+    "@unocss/eslint-config": "^0.58.0",
+    "@unocss/eslint-plugin": "^0.58.0",
+    "@unocss/reset": "^0.58.0",
+    "@unocss/transformer-directives": "^0.58.0",
+    "@unocss/transformer-variant-group": "^0.58.0",
+    "@vueuse/core": "^10.7.0",
+    "builtin-modules": "^3.3.0",
+    "eslint": "^8.56.0",
+    "magic-string": "^0.30.5",
+    "obsidian": "^1.4.11",
+    "ofetch": "^1.3.3",
+    "typescript": "^5.3.3",
+    "unbuild": "^2.0.0",
+    "unocss": "^0.58.0",
+    "vue": "^3.3.12"
+  }
+}
