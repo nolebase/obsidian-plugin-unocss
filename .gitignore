@@ -17,3 +17,5 @@ data.json
 dist/
 
 .eslintcache
+
+obsidian-plugin-dist/
