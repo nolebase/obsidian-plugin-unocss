@@ -13,9 +13,11 @@
 >
 > To integrate Obsidian plugins with VitePress-rendered pages effectively, we launched the Nólëbase Integrations project. This initiative aims to create a suite of plugins that enhance the functionality of popular Obsidian plugins, enabling them to be able to work in the browsers as rendered pages.
 
-When crafting documentation in [Nólëbase](https://github.com/nolebase/nolebase), creating numerous visual components is crucial for enhancing the documents with dynamic and interactive user interfaces. This not only makes the content more digestible but also more engaging. Previously, [Obsidian](https://obsidian.md) lacked the functionality to effectively integrate and apply styles from frameworks like [Tailwind CSS](https://tailwindcss.com/docs/display) and [Windi CSS](https://windicss.org/) to HTML elements within its platform.
+When crafting documentation in [Nólëbase](https://github.com/nolebase/nolebase), creating numerous visual components is crucial for enhancing the documents with dynamic and interactive user interfaces. This not only makes the content more digestible but also more engaging.
+Previously, [Obsidian](https://obsidian.md) lacked the functionality to effectively integrate and apply styles from frameworks like [Tailwind CSS](https://tailwindcss.com/docs/display) and [Windi CSS](https://windicss.org/) to HTML elements within its platform.
 
-This is where Obsidian UnoCSS Plugin kicks in, it allows you to write your notes in [Obsidian](https://obsidian.md/) with [UnoCSS](https://unocss.dev/). By doing so, it bridges the gap, allowing for the utilization of atomic CSS directly in Obsidian, thus elevating the aesthetics and functionality of the documentation.
+This is where Obsidian UnoCSS Plugin kicks in, it allows you to write your notes in [Obsidian](https://obsidian.md/) with [UnoCSS](https://unocss.dev/).
+By doing so, it bridges the gap, allowing for the utilization of atomic CSS directly in Obsidian, thus elevating the aesthetics and functionality of the documentation.
 
 ## 🎨 Features
 
@@ -59,6 +61,50 @@ https://github.com/nolebase/obsidian-plugin-unocss/assets/11081491/1ff2aa44-dc7c
 > To do so, you need to split your Obsidian view into two panes, and choose "Source mode" for the editing pane where you wanted to view and edit the HTML markup.
 
 https://github.com/nolebase/obsidian-plugin-unocss/assets/11081491/197edb93-4b21-4960-8c90-7cf79b037356
+
+## 😎 How to install
+
+> [!WARNING]
+> Currently Obsidian UnoCSS Plugin is in alpha stage, it wasn't guaranteed to work properly and keep the compatibility with the future versions of itself.
+>
+> But it is encouraged to try it out and give feedbacks. If you find and bugs or have any suggestions, please feel free to open an issue on [GitHub](https://github.com/nolebase/obsidian-plugin-unocss/issues).
+
+Currently, it is a bit hard to install the plugin for now before it is published to the official Obsidian plugin store. Manual downloading and installation is required.
+
+### Install with beta testing helper [BRAT](https://tfthacker.com/brat-quick-guide) plugin
+
+1. Install the [BRAT](https://tfthacker.com/brat-quick-guide) plugin right from the official Obsidian plugin store.
+2. Enable the BRAT plugin in the community plugins settings menu.
+3. Open Command palette to choose `BRAT: Plugins: Add a beta plugin for testing`.
+4. Copy and paste the following link to the first field of the new prompted dialog:
+
+```txt
+https://github.com/nolebase/obsidian-plugin-unocss
+```
+
+5. Find the needed released version on [Release page of Obsidian UnoCSS Plugin](https://github.com/nolebase/obsidian-plugin-unocss/releases), for example, fill in `0.1.0`.
+6. Enable the "UnoCSS" plugin from the `Installed plugins` list.
+
+### Install manually
+
+1. Navigate to the [Release page of Obsidian UnoCSS Plugin](https://github.com/nolebase/obsidian-plugin-unocss/releases)
+2. Find the [latest version of the plugin](https://github.com/nolebase/obsidian-plugin-unocss/releases/latest).
+3. Download the `main.js` file and `manifest.json` file.
+4. Open up the `.obsidian/plugins` directory of your Obsidian vault.
+5. If no `.obsidian/plugins` directory exists, create one.
+6. Create a new directory named `obsidian-plugin-unocss` inside the `.obsidian/plugins` directory.
+7. Move `main.js` file and `manifest.json` file into the `obsidian-plugin-unocss` directory.
+
+The directory structure should look like this after these steps:
+
+```shell
+❯ tree
+.
+├── main.js
+├── manifest.json
+```
+
+8. Enable the "UnoCSS" plugin from the "Installed plugins" list.
 
 ## ⏳ TODOs
 

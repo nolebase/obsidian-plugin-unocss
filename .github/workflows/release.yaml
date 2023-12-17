@@ -58,4 +58,4 @@ jobs:
           gh release create "${{ steps.version.outputs.VERSION }}" \
             --title="${{ steps.version.outputs.VERSION }}" \
             --draft \
-            main.js main.js.map manifest.json
+            dist/main.js dist/manifest.json

@@ -25,10 +25,9 @@
     "dist"
   ],
   "scripts": {
-    "cleanup": "rm -rf ./main.js & rm -rf ./main.js.map && rm -rf ./obsidian-plugin-dist",
+    "cleanup": "rm -rf ./main.js && rm -rf ./main.js.map",
     "build": "unbuild && pnpm run cleanup && pnpm run copy",
     "copy": "cp ./dist/main.js ./main.js && cp ./dist/main.js.map ./main.js.map",
-    "pre-release": "mkdir -p ./obsidian-plugin-dist && cp ./main.js ./obsidian-plugin-dist/main.js && cp ./main.js.map ./obsidian-plugin-dist/main.js.map",
     "lint": "eslint --cache ."
   },
   "devDependencies": {
