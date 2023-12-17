@@ -45,8 +45,8 @@ jobs:
       - name: Lint
         run: pnpm run lint
 
-  packages-build-test:
-    name: Build Test for Packages
+  build-test:
+    name: Build Test
     permissions:
       pull-requests: write
     runs-on: ubuntu-22.04
