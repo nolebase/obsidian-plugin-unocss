@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     name: Build
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -40,7 +42,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build Test
+      - name: Build
         run: pnpm run build
 
       - name: Get release version
