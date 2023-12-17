@@ -48,14 +48,14 @@ https://github.com/nolebase/obsidian-plugin-unocss/assets/11081491/96a7752a-2e24
 
 It's all basic just a set of HTML.
 
-> ![WARNING]
+> [!WARNING]
 > To learn more about what are the meanings of classes, I recommend you to use the documentation sites of [Tailwind CSS](https://tailwindcss.com/docs/display) and [Windi CSS](https://windicss.org/) as references.
 
 https://github.com/nolebase/obsidian-plugin-unocss/assets/11081491/1ff2aa44-dc7c-48b5-9dd7-0271a3661e92
 
 ### Hot-reloading capabilities in live preview mode
 
-> ![NOTE]
+> [!NOTE]
 > To do so, you need to split your Obsidian view into two panes, and choose "Source mode" for the editing pane where you wanted to view and edit the HTML markup.
 
 https://github.com/nolebase/obsidian-plugin-unocss/assets/11081491/197edb93-4b21-4960-8c90-7cf79b037356
