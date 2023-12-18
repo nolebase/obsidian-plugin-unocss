@@ -14,10 +14,10 @@
 > To integrate Obsidian plugins with VitePress-rendered pages effectively, we launched the Nólëbase Integrations project. This initiative aims to create a suite of plugins that enhance the functionality of popular Obsidian plugins, enabling them to be able to work in the browsers as rendered pages.
 
 When crafting documentation in [Nólëbase](https://github.com/nolebase/nolebase), creating numerous visual components is crucial for enhancing the documents with dynamic and interactive user interfaces. This not only makes the content more digestible but also more engaging.
-Previously, [Obsidian](https://obsidian.md) lacked the functionality to effectively integrate and apply styles from frameworks like [Tailwind CSS](https://tailwindcss.com/docs/display) and [Windi CSS](https://windicss.org/) to HTML elements within its platform.
+Previously, [Obsidian](https://obsidian.md) lacked the functionality to effectively integrate and apply styles from atomic CSS frameworks like [Tailwind CSS](https://tailwindcss.com/docs/display) and [Windi CSS](https://windicss.org/) to HTML elements within its platform.
 
 This is where Obsidian UnoCSS Plugin kicks in, it allows you to write your notes in [Obsidian](https://obsidian.md/) with [UnoCSS](https://unocss.dev/).
-By doing so, it bridges the gap, allowing for the utilization of atomic CSS directly in Obsidian, thus elevating the aesthetics and functionality of the documentation.
+By doing so, it bridges the gap, empowers Obsidian notes with the ease of styling writing with [Tailwind CSS](https://tailwindcss.com/docs/display) and [Windi CSS](https://windicss.org/) directly, thus elevating the aesthetics and functionality of the documentation.
 
 ## 🎨 Features
 
