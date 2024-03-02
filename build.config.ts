@@ -6,6 +6,10 @@ export default defineBuildConfig({
   sourcemap: true,
   declaration: false,
   externals: [
+    'ofetch',
+    // UnoCSS
+    'unocss',
+    '@unocss/core',
     // Obsidian
     'obsidian',
     'electron',
@@ -39,5 +43,4 @@ export default defineBuildConfig({
       entryFileNames: 'main.js',
     },
   },
-  failOnWarn: false,
 })
