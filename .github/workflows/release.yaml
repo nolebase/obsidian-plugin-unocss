@@ -5,6 +5,9 @@ on:
     tags:
       - "*"
 
+env:
+  STORE_PATH: ''
+
 jobs:
   build:
     name: Build
