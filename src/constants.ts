@@ -1,3 +1,4 @@
+// https://github.com/unocss/unocss/blob/main/packages/shared-docs/src/defaultConfig.ts
 export const defaultConfigRaw = `import {
   defineConfig,
   presetAttributify,

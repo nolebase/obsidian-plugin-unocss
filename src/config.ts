@@ -2,13 +2,19 @@ import * as unoCssModule from 'unocss'
 import type { UserConfig } from '@unocss/core'
 import { $fetch } from 'ofetch'
 
+// https://github.com/unocss/unocss/blob/6d94efc56b0c966f25f46d8988b3fd30ebc189aa/packages/shared-docs/src/config.ts#L5
+const AsyncFunction = Object.getPrototypeOf(async () => { }).constructor
+
+// https://github.com/unocss/unocss/blob/6d94efc56b0c966f25f46d8988b3fd30ebc189aa/packages/shared-docs/src/config.ts#L7-L9
 const CDN_BASE = 'https://esm.sh/'
 const modulesCache = new Map<string, Promise<unknown> | unknown>()
 modulesCache.set('unocss', unoCssModule)
 
+// https://github.com/unocss/unocss/blob/6d94efc56b0c966f25f46d8988b3fd30ebc189aa/packages/shared-docs/src/config.ts#L26
 // eslint-disable-next-line no-new-func
 const nativeImport = new Function('a', 'return import(a);')
 
+// https://github.com/unocss/unocss/blob/6d94efc56b0c966f25f46d8988b3fd30ebc189aa/packages/shared-docs/src/config.ts#L31-L33
 async function fetchAndImportAnyModuleWithCDNCapabilities(name: string) {
   if (name.endsWith('.json')) {
     const response = await $fetch(CDN_BASE + name, { responseType: 'json' })
@@ -18,6 +24,7 @@ async function fetchAndImportAnyModuleWithCDNCapabilities(name: string) {
   return nativeImport(CDN_BASE + name)
 }
 
+// https://github.com/unocss/unocss/blob/6d94efc56b0c966f25f46d8988b3fd30ebc189aa/packages/shared-docs/src/config.ts#L27-L37
 // bypass vite interop
 async function dynamicImportAnyModule(name: string): Promise<any> {
   if (modulesCache.has(name))
@@ -32,14 +39,14 @@ async function dynamicImportAnyModule(name: string): Promise<any> {
   }
 }
 
-const importUnocssRegex = /import\s*(.*?)\s*from\s*(['"])unocss\2/g
-const importObjectRegex = /import\s*(\{[\s\S]*?\})\s*from\s*(['"])([\w-@/]+)\2/g
-const importDefaultRegex = /import\s*(.*?)\s*from\s*(['"])([\w-@/]+)\2/g
+// https://github.com/unocss/unocss/blob/main/packages/shared-docs/src/config.ts
+const importUnocssRegex = /import\s(.*?)\sfrom\s*(['"])unocss\2/g
+const importObjectRegex = /import\s*(\{[\s\S]*?\})\s*from\s*(['"])([\w@/-]+)\2/g
+const importDefaultRegex = /import\s(.*?)\sfrom\s*(['"])([\w@/-]+)\2/g
 const exportDefaultRegex = /export default /
 const importRegex = /\bimport\s*\(/g
 
-const AsyncFunction = Object.getPrototypeOf(async () => { }).constructor
-
+// https://github.com/unocss/unocss/blob/main/packages/shared-docs/src/config.ts
 export async function evaluateUserConfig<U = UserConfig>(configCode: string): Promise<U | undefined> {
   const transformedCode = configCode
     .replace(importUnocssRegex, 'const $1 = await __import("unocss");')
