@@ -6,10 +6,6 @@ export default defineBuildConfig({
   sourcemap: true,
   declaration: false,
   externals: [
-    'ofetch',
-    // UnoCSS
-    'unocss',
-    '@unocss/core',
     // Obsidian
     'obsidian',
     'electron',
@@ -42,5 +38,10 @@ export default defineBuildConfig({
       sourcemap: true,
       entryFileNames: 'main.js',
     },
+    // required for unocss, ofetch, etc.
+    // otherwise unbuild will detect them as external
+    // dependencies that are inline implicitly external
+    // by esbuild
+    inlineDependencies: true,
   },
 })
