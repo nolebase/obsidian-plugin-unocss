@@ -21,6 +21,10 @@ function debounce<T extends (...args: any) => any>(fn: T, wait: number) {
   }
 }
 
+function sleep(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 class UnoCSSCodeMirrorViewPlugin implements PluginValue {
   private view: EditorView
   private styleElement: HTMLStyleElement | undefined
@@ -62,7 +66,7 @@ class UnoCSSCodeMirrorViewPlugin implements PluginValue {
     let i = 0
 
     while (!this.view || !this.view.dom) {
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      await sleep(1000)
 
       i++
       if (i > seconds)
@@ -95,12 +99,14 @@ class UnoCSSCodeMirrorViewPlugin implements PluginValue {
 
 export default class UnoCSSPlugin extends Plugin {
   async onload() {
+    // https://github.com/unocss/unocss/blob/main/playground/src/composables/config.ts
     const unocssConfig = await evaluateUserConfig(defaultConfigRaw)
     if (!unocssConfig)
       return
 
-    const unocssCodeGenerator = createGenerator({}, unocssConfig)
-    const editorPlugins = ViewPlugin.define(view => new UnoCSSCodeMirrorViewPlugin(view, unocssCodeGenerator))
+    // https://github.com/unocss/unocss/blob/6d94efc56b0c966f25f46d8988b3fd30ebc189aa/playground/src/composables/uno.ts#L13
+    const uno = createGenerator({}, unocssConfig)
+    const editorPlugins = ViewPlugin.define(view => new UnoCSSCodeMirrorViewPlugin(view, uno))
 
     this.registerEditorExtension(editorPlugins)
   }
