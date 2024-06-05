@@ -1,12 +1,4 @@
 {
-  "cSpell.words": [
-    "Astro",
-    "Attributify",
-    "easytag",
-    "emittypes",
-    "Logseq",
-    "preflights"
-  ],
   "prettier.enable": false,
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
