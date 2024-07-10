@@ -1,8 +1,8 @@
 import { Plugin } from 'obsidian'
 import { ViewPlugin } from '@codemirror/view'
 import type { EditorView, PluginValue, ViewUpdate } from '@codemirror/view'
-import { createGenerator } from 'unocss'
-import type { UnoGenerator } from 'unocss'
+import { createGenerator } from '@unocss/core'
+import type { UnoGenerator } from '@unocss/core'
 
 import { evaluateUserConfig } from './config'
 import { defaultConfigRaw } from './constants'
