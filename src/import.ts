@@ -1,5 +1,4 @@
 import * as unoCssModule from 'unocss'
-import type { UserConfig } from '@unocss/core'
 import { $fetch } from 'ofetch'
 
 // https://github.com/unocss/unocss/blob/6d94efc56b0c966f25f46d8988b3fd30ebc189aa/packages/shared-docs/src/config.ts#L5
@@ -47,7 +46,7 @@ const exportDefaultRegex = /export default /
 const importRegex = /\bimport\s*\(/g
 
 // https://github.com/unocss/unocss/blob/main/packages/shared-docs/src/config.ts
-export async function evaluateUserConfig<U = UserConfig>(configCode: string): Promise<U | undefined> {
+export async function evaluateAnyModule<T>(configCode: string): Promise<T | undefined> {
   const transformedCode = configCode
     .replace(importUnocssRegex, 'const $1 = await __import("unocss");')
     .replace(importObjectRegex, 'const $1 = await __import("$3");')
