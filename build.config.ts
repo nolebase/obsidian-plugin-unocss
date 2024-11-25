@@ -1,6 +1,8 @@
 import builtins from 'builtin-modules'
 import { defineBuildConfig } from 'unbuild'
 
+import { generateObsidianPluginManifest } from './scripts/manifest'
+
 export default defineBuildConfig({
   outDir: './dist',
   sourcemap: true,
@@ -35,7 +37,7 @@ export default defineBuildConfig({
     output: {
       dir: './dist',
       format: 'cjs',
-      sourcemap: true,
+      sourcemap: 'inline',
       entryFileNames: 'main.js',
     },
     // required for unocss, ofetch, etc.
@@ -43,5 +45,10 @@ export default defineBuildConfig({
     // dependencies that are inline implicitly external
     // by esbuild
     inlineDependencies: true,
+  },
+  hooks: {
+    'build:done': async () => {
+      await generateObsidianPluginManifest()
+    },
   },
 })

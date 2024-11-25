@@ -4,18 +4,22 @@ dictionaryDefinitions: []
 dictionaries: []
 words:
   - antfu
+  - Astro
+  - Attributify
+  - bumpp
   - codemirror
+  - collab
+  - easytag
+  - emittypes
+  - iconify
+  - lezer
+  - Logseq
   - nolebase
   - Nólëbase
   - ofetch
+  - preflights
   - tailwindcss
   - unocss
   - vueuse
-  - Astro
-  - Attributify
-  - easytag
-  - emittypes
-  - Logseq
-  - preflights
 ignoreWords: []
 import: []
