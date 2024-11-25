@@ -2,7 +2,7 @@
   "name": "obsidian-plugin-unocss",
   "type": "module",
   "version": "0.3.0",
-  "packageManager": "pnpm@9.5.0",
+  "packageManager": "pnpm@9.14.2",
   "description": "A Obsidian.md plugin that allows you to generate and apply UnoCSS and Tailwind CSS supported styles right in your notes.",
   "author": {
     "name": "Nólëbase",
@@ -29,25 +29,26 @@
     "cleanup": "rm -rf ./main.js && rm -rf ./main.js.map",
     "build": "unbuild && pnpm run cleanup && pnpm run copy",
     "copy": "cp ./dist/main.js ./main.js && cp ./dist/main.js.map ./main.js.map",
-    "lint": "eslint --cache ."
+    "lint": "eslint --cache .",
+    "lint:fix": "eslint --cache --fix ."
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.22.0",
-    "@codemirror/view": "^6.28.4",
-    "@types/node": "^20.14.10",
-    "@unocss/core": "^0.58.9",
-    "@unocss/eslint-config": "^0.58.9",
-    "@unocss/eslint-plugin": "^0.58.9",
-    "@unocss/reset": "^0.58.9",
-    "@unocss/transformer-directives": "^0.58.9",
-    "@unocss/transformer-variant-group": "^0.58.9",
+    "@antfu/eslint-config": "^3.9.2",
+    "@codemirror/view": "^6.35.0",
+    "@types/node": "^22.9.3",
+    "@unocss/core": "^0.64.1",
+    "@unocss/eslint-config": "^0.64.1",
+    "@unocss/eslint-plugin": "^0.64.1",
+    "@unocss/reset": "^0.64.1",
+    "@unocss/transformer-directives": "^0.64.1",
+    "@unocss/transformer-variant-group": "^0.64.1",
     "builtin-modules": "^3.3.0",
-    "eslint": "^8.57.0",
-    "magic-string": "^0.30.10",
-    "obsidian": "^1.5.7",
-    "ofetch": "^1.3.4",
-    "typescript": "^5.5.3",
+    "eslint": "^9.15.0",
+    "magic-string": "^0.30.13",
+    "obsidian": "^1.7.2",
+    "ofetch": "^1.4.1",
+    "typescript": "^5.7.2",
     "unbuild": "^2.0.0",
-    "unocss": "^0.58.9"
+    "unocss": "^0.64.1"
   }
 }

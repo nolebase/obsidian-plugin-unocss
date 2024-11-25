@@ -1,11 +1,11 @@
-import { Plugin } from 'obsidian'
-import { ViewPlugin } from '@codemirror/view'
 import type { EditorView, PluginValue, ViewUpdate } from '@codemirror/view'
-import { createGenerator } from '@unocss/core'
 import type { UnoGenerator, UserConfig } from '@unocss/core'
+import { ViewPlugin } from '@codemirror/view'
+import { createGenerator } from '@unocss/core'
+import { Plugin } from 'obsidian'
 
-import { evaluateAnyModule } from './import'
 import { defaultConfigRaw } from './constants'
+import { evaluateAnyModule } from './import'
 
 function debounce<T extends (...args: any) => any>(fn: T, wait: number) {
   let timer: any = null
