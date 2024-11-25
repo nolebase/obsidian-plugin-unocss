@@ -4,4 +4,5 @@ export default defineConfig({
   recursive: true,
   commit: 'release: v%s',
   sign: true,
+  tag: '%s',
 })
