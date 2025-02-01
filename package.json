@@ -42,7 +42,7 @@
     "@unocss/transformer-directives": "^65.0.0",
     "@unocss/transformer-variant-group": "^65.0.0",
     "builtin-modules": "^4.0.0",
-    "bumpp": "^9.8.1",
+    "bumpp": "^10.0.0",
     "eslint": "^9.15.0",
     "magic-string": "^0.30.13",
     "obsidian": "^1.7.2",
