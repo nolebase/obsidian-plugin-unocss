@@ -41,7 +41,7 @@
     "@unocss/reset": "^0.58.9",
     "@unocss/transformer-directives": "^0.58.9",
     "@unocss/transformer-variant-group": "^0.58.9",
-    "builtin-modules": "^3.3.0",
+    "builtin-modules": "^4.0.0",
     "bumpp": "^10.0.1",
     "eslint": "^9.19.0",
     "magic-string": "^0.30.17",
