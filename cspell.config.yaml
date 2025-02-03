@@ -11,21 +11,16 @@ words:
   - collab
   - easytag
   - emittypes
+  - Errorable
   - iconify
   - lezer
   - Logseq
   - nolebase
   - Nólëbase
   - ofetch
+  - preflights
   - tailwindcss
   - unocss
   - vueuse
-  - Astro
-  - Attributify
-  - preflights
-  - easytag
-  - emittypes
-  - Logseq
-  - preflights
 ignoreWords: []
 import: []

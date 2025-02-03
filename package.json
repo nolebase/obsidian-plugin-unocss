@@ -26,10 +26,10 @@
     "dist"
   ],
   "scripts": {
-    "cleanup": "rm -rf ./main.js && rm -rf ./main.js.map",
-    "build": "unbuild && pnpm run cleanup && pnpm run copy",
-    "copy": "cp ./dist/main.js ./main.js && cp ./dist/main.js.map ./main.js.map",
-    "lint": "eslint --cache ."
+    "build": "unbuild",
+    "lint": "eslint --cache .",
+    "lint:fix": "eslint --cache --fix .",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.22.0",
