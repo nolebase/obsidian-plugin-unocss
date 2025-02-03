@@ -27,7 +27,6 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           run_install: false
-          version: '9.5.0'
 
       - name: Obtain pnpm store directory
         shell: bash
@@ -51,9 +50,6 @@ jobs:
       - name: Get release version
         id: version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-
-      - name: Copy manifest
-        run: cp manifest.json dist/manifest.json
 
       - name: Create release
         env:
