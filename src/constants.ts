@@ -1,14 +1,11 @@
 // https://github.com/unocss/unocss/blob/main/packages/shared-docs/src/defaultConfig.ts
-export const defaultConfigRaw = `import {
-  defineConfig,
-  presetAttributify,
-  presetIcons,
-  presetUno,
-  transformerDirectives,
-  transformerVariantGroup,
-} from 'unocss'
+export const defaultConfigRaw = `import presetUno from '@unocss/preset-uno'
+import presetAttributify from '@unocss/preset-attributify'
+import presetIcons from '@unocss/preset-icons'
+import transformerDirectives from '@unocss/transformer-directives'
+import transformerVariantGroup from '@unocss/transformer-variant-group'
 
-export default defineConfig({
+export default {
   presets: [
     presetUno(),
     presetAttributify(),
@@ -24,5 +21,5 @@ export default defineConfig({
     transformerDirectives(),
     transformerVariantGroup(),
   ],
-})
+}
 `

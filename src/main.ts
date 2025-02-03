@@ -1,8 +1,8 @@
 import { Plugin } from 'obsidian'
 import { ViewPlugin } from '@codemirror/view'
 import type { EditorView, PluginValue, ViewUpdate } from '@codemirror/view'
-import { createGenerator } from '@unocss/core'
 import type { UnoGenerator, UserConfig } from '@unocss/core'
+import { createGenerator } from '@unocss/core'
 
 import { evaluateAnyModule } from './import'
 import { defaultConfigRaw } from './constants'
@@ -105,7 +105,7 @@ export default class UnoCSSPlugin extends Plugin {
       return
 
     // https://github.com/unocss/unocss/blob/6d94efc56b0c966f25f46d8988b3fd30ebc189aa/playground/src/composables/uno.ts#L13
-    const uno = createGenerator({}, unocssConfig)
+    const uno = await createGenerator({}, unocssConfig)
     const editorPlugins = ViewPlugin.define(view => new UnoCSSCodeMirrorViewPlugin(view, uno))
 
     this.registerEditorExtension(editorPlugins)
