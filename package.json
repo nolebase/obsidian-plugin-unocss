@@ -2,7 +2,7 @@
   "name": "obsidian-plugin-unocss",
   "type": "module",
   "version": "0.5.0",
-  "packageManager": "pnpm@10.3.0",
+  "packageManager": "pnpm@10.4.0",
   "description": "A Obsidian.md plugin that allows you to generate and apply UnoCSS and Tailwind CSS supported styles right in your notes.",
   "author": {
     "name": "Nólëbase",
