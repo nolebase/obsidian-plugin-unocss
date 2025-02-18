@@ -58,7 +58,7 @@ importers:
         version: 0.30.17
       obsidian:
         specifier: ^1.7.2
-        version: 1.7.2(@codemirror/state@6.5.2)(@codemirror/view@6.36.3)
+        version: 1.8.7(@codemirror/state@6.5.2)(@codemirror/view@6.36.3)
       ofetch:
         specifier: ^1.4.1
         version: 1.4.1
@@ -2001,8 +2001,8 @@ packages:
     engines: {node: ^14.16.0 || >=16.10.0}
     hasBin: true
 
-  obsidian@1.7.2:
-    resolution: {integrity: sha512-k9hN9brdknJC+afKr5FQzDRuEFGDKbDjfCazJwpgibwCAoZNYHYV8p/s3mM8I6AsnKrPKNXf8xGuMZ4enWelZQ==}
+  obsidian@1.8.7:
+    resolution: {integrity: sha512-h4bWwNFAGRXlMlMAzdEiIM2ppTGlrh7uGOJS6w4gClrsjc+ei/3YAtU2VdFUlCiPuTHpY4aBpFJJW75S1Tl/JA==}
     peerDependencies:
       '@codemirror/state': ^6.0.0
       '@codemirror/view': ^6.0.0
@@ -4764,7 +4764,7 @@ snapshots:
       tinyexec: 0.3.2
       ufo: 1.5.4
 
-  obsidian@1.7.2(@codemirror/state@6.5.2)(@codemirror/view@6.36.3):
+  obsidian@1.8.7(@codemirror/state@6.5.2)(@codemirror/view@6.36.3):
     dependencies:
       '@codemirror/state': 6.5.2
       '@codemirror/view': 6.36.3
