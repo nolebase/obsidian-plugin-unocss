@@ -24,5 +24,5 @@ export async function generateObsidianPluginManifest() {
     authorUrl: 'https://github.com/nolebase',
     isDesktopOnly: false,
   } satisfies ObsidianPluginManifest
-  await writeFile(join(cwd(), 'dist', 'manifest.json'), JSON.stringify(unocssManifest, null, 2))
+  await writeFile(join(cwd(), 'dist', 'manifest.json'), `${JSON.stringify(unocssManifest, null, 2)}\n`)
 }
