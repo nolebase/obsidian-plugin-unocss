@@ -13,7 +13,7 @@ importers:
         version: 4.11.0(@typescript-eslint/utils@8.29.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(@unocss/eslint-plugin@66.0.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(@vue/compiler-sfc@3.4.27)(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)
       '@codemirror/view':
         specifier: ^6.36.2
-        version: 6.36.4
+        version: 6.36.5
       '@types/node':
         specifier: ^22.13.0
         version: 22.13.16
@@ -58,7 +58,7 @@ importers:
         version: 0.30.17
       obsidian:
         specifier: ^1.7.2
-        version: 1.8.7(@codemirror/state@6.5.2)(@codemirror/view@6.36.4)
+        version: 1.8.7(@codemirror/state@6.5.2)(@codemirror/view@6.36.5)
       ofetch:
         specifier: ^1.4.1
         version: 1.4.1
@@ -159,8 +159,8 @@ packages:
   '@codemirror/state@6.5.2':
     resolution: {integrity: sha512-FVqsPqtPWKVVL3dPSxy8wEF/ymIEuVzF1PK3VbUgrxXpJUSHQWWZz4JMToquRxnkw+36LTamCZG2iua2Ptq0fA==}
 
-  '@codemirror/view@6.36.4':
-    resolution: {integrity: sha512-ZQ0V5ovw/miKEXTvjgzRyjnrk9TwriUB1k4R5p7uNnHR9Hus+D1SXHGdJshijEzPFjU25xea/7nhIeSqYFKdbA==}
+  '@codemirror/view@6.36.5':
+    resolution: {integrity: sha512-cd+FZEUlu3GQCYnguYm3EkhJ8KJVisqqUsCOKedBoAt/d9c76JUUap6U0UrpElln5k6VyrEOYliMuDAKIeDQLg==}
 
   '@emnapi/core@1.4.0':
     resolution: {integrity: sha512-H+N/FqT07NmLmt6OFFtDfwe8PNygprzBikrEMyQfgqSmT0vzE515Pz7R8izwB9q/zsH/MA64AKoul3sA6/CzVg==}
@@ -2680,7 +2680,7 @@ snapshots:
     dependencies:
       '@marijn/find-cluster-break': 1.0.2
 
-  '@codemirror/view@6.36.4':
+  '@codemirror/view@6.36.5':
     dependencies:
       '@codemirror/state': 6.5.2
       style-mod: 4.1.2
@@ -4686,10 +4686,10 @@ snapshots:
       pkg-types: 2.1.0
       tinyexec: 0.3.2
 
-  obsidian@1.8.7(@codemirror/state@6.5.2)(@codemirror/view@6.36.4):
+  obsidian@1.8.7(@codemirror/state@6.5.2)(@codemirror/view@6.36.5):
     dependencies:
       '@codemirror/state': 6.5.2
-      '@codemirror/view': 6.36.4
+      '@codemirror/view': 6.36.5
       '@types/codemirror': 5.60.8
       moment: 2.29.4
 
