@@ -2,10 +2,10 @@ import type { EditorView, PluginValue, ViewUpdate } from '@codemirror/view'
 import type { UnoGenerator, UserConfig } from '@unocss/core'
 import { ViewPlugin } from '@codemirror/view'
 import { createGenerator } from '@unocss/core'
-import { Plugin } from 'obsidian'
+import { evaluate } from '@unrteljs/eval/browser'
 
+import { Plugin } from 'obsidian'
 import { defaultConfigRaw } from './constants'
-import { evaluateAnyModule } from './import'
 
 function debounce<T extends (...args: any) => any>(fn: T, wait: number) {
   let timer: any = null
@@ -100,7 +100,7 @@ class UnoCSSCodeMirrorViewPlugin implements PluginValue {
 export default class UnoCSSPlugin extends Plugin {
   async onload() {
     // https://github.com/unocss/unocss/blob/main/playground/src/composables/config.ts
-    const unocssConfig = await evaluateAnyModule<UserConfig>(defaultConfigRaw)
+    const unocssConfig = await evaluate<UserConfig>(defaultConfigRaw)
     if (!unocssConfig)
       return
 
