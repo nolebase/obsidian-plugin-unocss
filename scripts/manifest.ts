@@ -20,7 +20,7 @@ export async function generateObsidianPluginManifest() {
     version: packageJSON.version,
     minAppVersion: '1.4.0',
     description: 'A Obsidian.md plugin that allows you to generate and apply UnoCSS and Tailwind CSS supported styles right in your notes.',
-    author: 'Nolebase',
+    author: 'Nólëbase',
     authorUrl: 'https://github.com/nolebase',
     isDesktopOnly: false,
   } satisfies ObsidianPluginManifest
