@@ -21,6 +21,7 @@ words:
   - preflights
   - tailwindcss
   - unocss
+  - unrteljs
   - vueuse
 ignoreWords: []
 import: []
