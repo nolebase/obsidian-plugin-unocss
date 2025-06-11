@@ -1,6 +1,7 @@
 import { writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { cwd } from 'node:process'
+
 import packageJSON from '../package.json' with { type: 'json' }
 
 interface ObsidianPluginManifest {

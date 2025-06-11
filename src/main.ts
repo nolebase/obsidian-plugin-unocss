@@ -1,10 +1,11 @@
 import type { EditorView, PluginValue, ViewUpdate } from '@codemirror/view'
 import type { UnoGenerator, UserConfig } from '@unocss/core'
+
 import { ViewPlugin } from '@codemirror/view'
 import { createGenerator } from '@unocss/core'
 import { evaluate } from '@unrteljs/eval/browser'
-
 import { Plugin } from 'obsidian'
+
 import { defaultConfigRaw } from './constants'
 
 function debounce<T extends (...args: any) => any>(fn: T, wait: number) {
