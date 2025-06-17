@@ -49,7 +49,6 @@
     "builtin-modules": "^5.0.0",
     "bumpp": "^10.1.1",
     "eslint": "^9.28.0",
-    "eslint-plugin-import-x": "^4.15.1",
     "magic-string": "^0.30.17",
     "obsidian": "^1.8.7",
     "ofetch": "^1.4.1",
