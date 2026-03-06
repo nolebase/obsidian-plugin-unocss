@@ -33,7 +33,7 @@
     "up": "taze -w -r -I -f && pnpm prune && pnpm dedupe"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.7.3",
+    "@antfu/eslint-config": "^7.7.0",
     "@codemirror/view": "^6.39.15",
     "@types/node": "^24.11.0",
     "@unocss/core": "^66.6.2",
