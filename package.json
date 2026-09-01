@@ -52,7 +52,7 @@
     "magic-string": "^0.30.21",
     "obsidian": "^1.13.1",
     "ofetch": "^1.5.1",
-    "taze": "^19.17.2",
+    "taze": "^21.1.0",
     "tsx": "^4.23.13",
     "typescript": "^5.9.3",
     "unbuild": "^3.6.1"
